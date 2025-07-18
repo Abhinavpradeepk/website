@@ -1,0 +1,100 @@
+.skills-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.skills-panel {
+  width: 50vw;
+  height: 100%;
+  padding: 2rem;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease-out;
+  overflow-y: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-skill {
+  background-color: white;
+  color: black;
+}
+
+.dark-skill {
+  background-color: #181717;
+  color: white;
+}
+
+.skills-panel h2 {
+  margin-bottom: 1rem;
+}
+
+.skills-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-panel ul li {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.skills-panel button {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #272424;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.progress-wrapper {
+  margin-top: 2rem;
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.5s ease-in-out;
+}
+
+.dark-skill .progress-bar {
+  background-color: #333;
+}
+
+.dark-skill .progress-fill {
+  background-color: #00ff99;
+}
