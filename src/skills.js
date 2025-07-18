@@ -2,7 +2,7 @@ import React from "react";
 import "./skills.css";
 
 const skillData = [
-  { name: "HTML", percent: 90 },cd
+  { name: "HTML", percent: 90 },
   { name: "CSS", percent: 85 },
   { name: "JavaScript", percent: 70 },
   { name: "React", percent: 50 }
