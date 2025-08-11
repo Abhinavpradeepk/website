@@ -19,7 +19,7 @@ const Projects = ({ open, close, darkMode }) => {
                     
                     
                     <a
-                        href="https://github.com/yourusername/portfolio"
+                        href="https://github.com/Abhinavpradeepk/website.git"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-card"
