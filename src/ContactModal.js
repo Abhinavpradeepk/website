@@ -1,4 +1,4 @@
-// ContactModal.js
+
 import React, { useRef } from "react";
 import "./ContactModal.css";
 import emailjs from "@emailjs/browser";
@@ -13,7 +13,7 @@ const ContactModal = ({ isOpen, onClose }) => {
       .sendForm(
         'service_yszax07',         
         'template_pqi0j37',         
-        form.current,
+        form.t,
         'khsKxkyCfOt6kpqMl'        
       )
       .then(

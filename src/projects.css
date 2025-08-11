@@ -1,0 +1,92 @@
+.projects-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 320px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: inherit;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Card Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.project-card {
+    background: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    margin: 10px;
+}
+
+.project-card p {
+    margin: 0 10px 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Dark mode styles */
+.dark .projects-content {
+    background: #222;
+    color: white;
+}
+
+.dark .project-card {
+    background: #333;
+}
+
+.dark .project-card p {
+    color: #bbb;
+}

@@ -3,28 +3,24 @@ import "./home.css";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import ContactModal from "./ContactModal";
 import Skills from "./skills";
+import Projects from "./projects"; // ✅ Fixed capital letter
+
 const Home = () => {
   const [isDarkMode, setDarkMode] = useState(false);
   const [isContactOpen, setContactOpen] = useState(false);
-  const [isSkillOpen,setSkill]=useState(false);
-  const handleContactClick = () => {
-    setContactOpen(true);
-  };
+  const [isSkillOpen, setSkill] = useState(false);
+  const [isProjectsOpen, setProjectsOpen] = useState(false);
 
+  const handleContactClick = () => setContactOpen(true);
+  const handleCloseContact = () => setContactOpen(false);
 
-  const handleClose = () => {
-    setContactOpen(false);
-  };
-  const handleSkillOpen= ()=>{
-    setSkill(true);
-  }
-  const handleSkillClose = ()=>{
-    setSkill(false);
-  }
+  const handleSkillOpen = () => setSkill(true);
+  const handleSkillClose = () => setSkill(false);
 
-  const toggleDarkMode = (checked) => {
-    setDarkMode(checked);
-  };
+  const handleProjectsOpen = () => setProjectsOpen(true);
+  const handleProjectsClose = () => setProjectsOpen(false);
+
+  const toggleDarkMode = (checked) => setDarkMode(checked);
 
   useEffect(() => {
     document.body.classList.toggle("dark-mode", isDarkMode);
@@ -45,8 +41,8 @@ const Home = () => {
         <nav className="nav-links">
           <a href="#">Know Me</a>
           <a href="#" onClick={handleSkillOpen}>Skills</a>
-          <a href="#">Projects</a>
-          <a href="#" onClick={handleContactClick} >Contact</a>
+          <a href="#" onClick={handleProjectsOpen}>Projects</a> {/* ✅ Fixed onClick */}
+          <a href="#" onClick={handleContactClick}>Contact</a>
         </nav>
       </header>
 
@@ -68,15 +64,14 @@ const Home = () => {
             <img src="icons8-linkedin-64.png" alt="LinkedIn" />
           </a>
         </section>
-
-       
       </main>
 
-      <ContactModal isOpen={isContactOpen} onClose={handleClose} />
+      {/* Modals */}
+      <ContactModal isOpen={isContactOpen} onClose={handleCloseContact} />
       <Skills open={isSkillOpen} close={handleSkillClose} darkMode={isDarkMode} />
-
+      <Projects open={isProjectsOpen} close={handleProjectsClose} darkMode={isDarkMode} /> {/* ✅ Capitalized */}
     </>
   );
 };
 
-export default Home; 
+export default Home;
