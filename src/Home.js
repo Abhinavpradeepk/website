@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from "react";
 import "./home.css";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 import ContactSection from "./ContactSection";
 import Skills from "./skills";
 import Projects from "./projects"; // ✅ Fixed capital letter
 import Meteors from "./Meteors"; // adjust path if needed
 const Home = () => {
-  const [isDarkMode, setDarkMode] = useState(false);
+  const [isDarkMode] = useState(false);
   const [isSkillOpen, setSkill] = useState(false);
 
   const handleContactClick = (e) => {
