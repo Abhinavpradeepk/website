@@ -1,29 +1,33 @@
-
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./ContactModal.css";
 import emailjs from "@emailjs/browser";
 
 const ContactModal = ({ isOpen, onClose }) => {
   const form = useRef();
+  const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     emailjs
       .sendForm(
-        'service_yszax07',         
-        'template_pqi0j37',         
-        form.t,
-        'khsKxkyCfOt6kpqMl'        
+        "service_tjj5o9k",    
+        "template_ynjnrtd",    
+        form.current,
+        "khsKxkyCfOt6kpqMl"     
       )
       .then(
         () => {
-          console.log("Message sent successfully");
-          alert("Message sent!");
+          alert("Message sent successfully!");
+          form.current.reset();
+          setLoading(false);
+          onClose(); 
         },
         (error) => {
-          console.error("Message failed to send:", error);
+          console.error("FAILED...", error);
           alert("Failed to send message.");
+          setLoading(false);
         }
       );
   };
@@ -34,20 +38,35 @@ const ContactModal = ({ isOpen, onClose }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="close-btn" onClick={onClose}>
-          X
+          ✖
         </button>
-        <center><h2>Contact Me</h2></center>
+
+        <h2>Contact Me</h2>
+
         <form ref={form} onSubmit={sendEmail}>
-          <label>Name</label>
-          <input type="text" name="user_name" placeholder="Your Name" required />
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Your Name"
+            required
+          />
 
-          <label>Email</label>
-          <input type="email" name="user_email" placeholder="Your Email" required />
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Your Email"
+            required
+          />
 
-          <label>Message</label>
-          <textarea name="message" placeholder="Type your message here..." required />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          />
 
-          <button type="submit">Send</button>
+          <button type="submit">
+            {loading ? "Sending..." : "Send Message"}
+          </button>
         </form>
       </div>
     </div>
